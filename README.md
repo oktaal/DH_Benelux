@@ -1,2 +1,2 @@
 # DH_Benelux
-A small style file for submissions to he DH Benelux 2016
+A small style file for submissions to the DH Benelux 2016
