@@ -1,7 +1,7 @@
 # DH_Benelux
 ```
 ----------------------------------------------------------------------------
-dhbenelux.sty -- A small style file for submissions to he DH Benelux 2016
+dhbenelux.sty -- A small style file for submissions to the DH Benelux 2016
 (c) 2016
 Version:    0.3
 Maintainer: Martin Sievers
@@ -16,7 +16,7 @@ See:        http://www.latex-project.org/lppl.txt
 
 ### 0.2 to 0.3
 
-* Added support for hyperref package (options ``print'' and ``electronic'')
+* Added support for ``hyperref`` package (options ``print`` and ``electronic``)
 * split up files to distribute it via Github
 
 ### 0.1 to 0.2
