@@ -1,0 +1,49 @@
+% !TeX program = xelatex
+% !TeX TXS-program:bibliography = txs:///biber
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Martin Sievers, 2016. Use the file AS-IS.
+%
+% This is a template to meet the requirements for submitting an 
+% abstract for the DH Benelux 2016. It was set-up by imitating the 
+% original docx file.
+%
+% Please note, that you need the font ``Calibri''. For platforms other 
+% than MS Windows, please check e.g. 
+% www.makeuseof.com/tag/how-to-install-microsoft-core-fonts-in-ubuntu-linux/
+% or www.pcworld.com/article/2863497/how-to-install-microsoft-fonts-in-linux-office-suites.html
+%
+% USAGE: The first time you compile this document, a style file 
+% ``dhbenelux.sty'' is written. It is then used starting at line 166 
+% for the document itself.
+%
+% If you have any comments or questions, please contact sievers@uni-trier.de 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,11pt]{article}
+\usepackage[]{dhbenelux}
+
+\addbibresource{YOURFILE.bib} %%%<--- ENTER your .bib file here
+
+\begin{document}
+\title{Title of Your Paper in Title Case}
+\author{Author name 1}{Affil}{Email@email.de}
+\author{Author name 2}{Affil}{Email@email.de}
+%\author{Author name 3}{Affil}{Email@email.de}
+%\author{Author name 4}{Affil}{Email@email.de}
+%\author{Author name 5}{Affil}{Email@email.de}
+%\author{Author name 6}{Affil}{Email@email.de}
+%\author{Author name 7}{Affil}{Email@email.de}
+\maketitle
+
+
+Please enter for text.
+\begin{figure}
+Place graphic here
+\caption{Fractal island construction}
+\label{fig:fractal_island_construction}
+\end{figure}
+
+Please enter other text here. Use \parencite{key}, \cite{key} or \textcite{key} for references to your BibTeX database.
+
+%%% Outputs bibliography
+\printbibliography
+\end{document}
