@@ -27,13 +27,30 @@
 % www.makeuseof.com/tag/how-to-install-microsoft-core-fonts-in-ubuntu-linux/
 % or www.pcworld.com/article/2863497/how-to-install-microsoft-fonts-in-linux-office-suites.html
 %
+% By default the biblatex package is used in conjenction with biber. 
+% Therefore you have to call ``xelatex'', then ''biber'' and then 
+% ``xelatex'' again (maybe twice)
+%
 % If you have any comments or questions, please let me know.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[a4paper,11pt]{article}
-\usepackage[]{dhbenelux}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Load style file for DH Benelux
+%%% Available options:
+%%%    - electronic: create a document using hyperref with colors (default)
+%%%    - print:      do not use colored links
+%%%    - biblatex:   load biblatex package with backend biber (default)
+%%%    - nobiblatex: do not load biblatex -> user has to provide it own 
+%%%                  thebibliography environment, e.g. with bst+bibtex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[biblatex]{dhbenelux}
 
+% Default: biblatex+biber
 \addbibresource{YOURFILE.bib} %%%<--- ENTER your .bib file here
 
+% Otherwise provide your own thebibliography environment or use bst 
+% files together with bibtex
+%
 \begin{document}
 \title{Title of Your Paper in Title Case}
 \author{Author name 1}{Affil}{Email@email.de}
@@ -46,7 +63,7 @@
 \maketitle
 
 
-Please enter for text.
+Please enter your text.
 \begin{figure}
 Place graphic here
 \caption{Fractal island construction}
@@ -55,6 +72,8 @@ Place graphic here
 
 Please enter other text here. Use \parencite{key}, \cite{key} or \textcite{key} for references to your BibTeX database.
 
-%%% Outputs bibliography
+%%% Outputs bibliography (for default biblatex usage)
+%%% You can use \bibliographystyle and \bibliography here instead if you want.
 \printbibliography
+
 \end{document}

@@ -14,13 +14,16 @@
 % This work consists of the files dhbenelux.sty and abstract-template.tex
 %
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesPackage{dhbenelux}[2016/04/14 v0.3 A small style file for the DH Benelux]
+\ProvidesPackage{dhbenelux}[2016/04/20 v0.3 A small style file for the DH Benelux]
 \RequirePackage{ifxetex}
 \RequireXeTeX
 \newif\if@print
+\newif\if@usebiblatex
 \DeclareOption{electronic}{\@printfalse}
 \DeclareOption{print}{\@printtrue}
-\ExecuteOptions{electronic}
+\DeclareOption{biblatex}{\@usebiblatextrue}
+\DeclareOption{nobiblatex}{\@usebiblatexfalse}
+\ExecuteOptions{biblatex,electronic}
 \ProcessOptions\relax
 \usepackage{fontspec}
 \setmainfont{Calibri}
@@ -44,24 +47,31 @@
    format=hang,justification=raggedright,%
    singlelinecheck=false}
 \usepackage[autostyle]{csquotes}
-\usepackage[backend=biber,style=authoryear]{biblatex}
-%%%
-\ExecuteBibliographyOptions{firstinits=true,uniquename=init,doi=false,isbn=false}
-
-\DeclareNameAlias{sortname}{last-first}
-
-\setlength{\bibitemsep}{0pt}
-\setlength{\bibhang}{2em}
-\renewcommand{\newunitpunct}{\addcomma\space}
-\renewcommand{\labelnamepunct}{\addspace}
-\renewbibmacro*{in:}{}
-\renewcommand{\bibfont}{\normalfont\fontsize{10pt}{11.5pt}\selectfont\raggedright}
-\defbibheading{bibliography}[\refname]{%
-    \removelastskip%
-    \vspace*{8mm}%
-    {\bfseries\fontsize{12pt}{13.8pt}\selectfont\color{GrayForReferences} #1\par}%
-     \vspace*{-0.5\baselineskip}}%
-%%%  
+\if@usebiblatex
+   \PackageInfo{dhbenelux}{Package biblatex loaded. Please use\MessageBreak biber instead of bibtex to connect your .bib file.}
+   \usepackage[backend=biber,style=authoryear]{biblatex}
+   %%%
+   \ExecuteBibliographyOptions{firstinits=true,uniquename=init,doi=false,isbn=false}
+   %
+   \DeclareNameAlias{sortname}{last-first}
+   %
+   \setlength{\bibitemsep}{0pt}
+   \setlength{\bibhang}{2em}
+   \renewcommand{\newunitpunct}{\addcomma\space}
+   \renewcommand{\labelnamepunct}{\addspace}
+   \renewbibmacro*{in:}{}
+   \renewcommand{\bibfont}{\normalfont\fontsize{10pt}{11.5pt}\selectfont\raggedright}
+   \defbibheading{bibliography}[\refname]{%
+       \removelastskip%
+       \vspace*{8mm}%
+       {\bfseries\fontsize{12pt}{13.8pt}\selectfont\color{GrayForReferences} #1\par}%
+        \vspace*{-0.5\baselineskip}}%
+\else
+   \PackageInfo{dhbenelux}{You deactivated biblatex. Please provide your\MessageBreak own bibliography or use BiBTeX instead.}
+   \newcommand*{\addbibresource}{\PackageError{dhbenelux}{You can not use \string\addbibresource, because\MessageBreak you deactivated biblatex.}{Please remove the option ``nobiblatex'' from the \string\usepackage\space call}}
+   \newcommand*{\addbibresource}{\PackageError{dhbenelux}{You can not use \string\printbibliography, because\MessageBreak you deactivated biblatex.}{Please remove the option ``nobiblatex'' from the \string\usepackage\space call}}   
+   \RequirePackage{url}
+\fi%  
 \urlstyle{same}
 
 \usepackage{multicol}
