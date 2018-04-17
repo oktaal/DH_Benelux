@@ -26,7 +26,7 @@
 \ExecuteOptions{biblatex,electronic}
 \ProcessOptions\relax
 \usepackage{fontspec}
-\setmainfont{Calibri}
+\setmainfont{Times New Roman}
 \usepackage[british]{babel}
 \usepackage{microtype}
 \usepackage{parskip}
@@ -35,14 +35,10 @@
 \usepackage{setspace}
 \setstretch{1.15}
 \usepackage{xcolor}
-\definecolor{BlauAkzent1}{RGB}{79,129,189}
-\definecolor{RedForTitle}{RGB}{153,0,0}
 \definecolor{GrayForReferences}{RGB}{102,102,102}
 
 \usepackage{caption}
 \captionsetup{%
-   labelfont={color=BlauAkzent1},%
-   textfont={color=BlauAkzent1},%
    font=footnotesize,%
    format=hang,justification=raggedright,%
    singlelinecheck=false}
@@ -101,7 +97,7 @@
 \newcounter{@titlemulticols}
 \def\maketitle{%
    \begin{center}
-      {\fontsize{24pt}{24pt}\selectfont\bfseries\color{RedForTitle}\@title\par\vspace*{0.35cm}}
+      {\bfseries\@title\par}
       \ifx\@authorvii\@empty% at most 6 authors
          \ifx\@authoriv\@empty% at most 3 authors
             \setcounter{@titlemulticols}{1}%
@@ -117,58 +113,58 @@
       \ifx\@authori\empty
          \relax
       \else
-         \textit{\large\@authori}\\*\@affili\\*\@emaili\par
+         \@authori\\*\@affili\\*\@emaili\par
       \fi
       \ifx\@authorii\empty
          \relax
       \else
-         \textit{\large\@authorii}\\*\@affilii\\*\@emailii\par
+         \@authorii\\*\@affilii\\*\@emailii\par
       \fi
       \ifx\@authoriii\empty
          \relax
       \else
-         \textit{\large\@authoriii}\\*\@affiliii\\*\@emailiii\par
+         \@authoriii\\*\@affiliii\\*\@emailiii\par
       \fi
       \ifx\@authoriv\empty
          \relax
       \else
-         \textit{\large\@authoriv}\\*\@affiliv\\*\@emailiv\par
+         \@authoriv\\*\@affiliv\\*\@emailiv\par
       \fi            
       \ifx\@authorv\empty
          \relax
       \else
-         \textit{\large\@authorv}\\*\@affilv\\*\@emailv\par
+         \@authorv\\*\@affilv\\*\@emailv\par
       \fi
       \ifx\@authorvi\empty
          \relax
       \else
-         \textit{\large\@authorvi}\\*\@affilvi\\*\@emailvi\par
+         \@authorvi\\*\@affilvi\\*\@emailvi\par
       \fi
       \ifx\@authorvii\empty
          \relax
       \else
-         \textit{\large\@authorvii}\\*\@affilvii\\*\@emailvii\par
+         \@authorvii\\*\@affilvii\\*\@emailvii\par
       \fi                  
       \ifx\@authorviii\empty
          \relax
       \else
-         \textit{\large\@authorviii}\\*\@affilviii\\*\@emailviii\par
+         \@authorviii\\*\@affilviii\\*\@emailviii\par
       \fi
       \ifx\@authorix\empty
          \relax
       \else
-         \textit{\large\@authorix}\\*\@affilix\\*\@emailix\par
+         \@authorix\\*\@affilix\\*\@emailix\par
       \fi
       \ifx\@authorx\empty
          \relax
       \else
-         \textit{\large\@authorx}\\\@affilx\\\@emailx\par
+         \@authorx\\\@affilx\\\@emailx\par
       \fi
       \ifnum\value{@titlemulticols}>1
          \end{multicols}
       \fi%
    \end{center}
-   \vspace*{2\baselineskip}
+%    \vspace*{2\baselineskip}
 }
 \def\fps@figure{htb}
 \makeatother
