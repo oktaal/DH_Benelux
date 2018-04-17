@@ -34,8 +34,6 @@
 \usepackage[margin=2.54truecm]{geometry}
 \usepackage{setspace}
 \setstretch{1.15}
-\usepackage{xcolor}
-\definecolor{GrayForReferences}{RGB}{102,102,102}
 
 \usepackage{caption}
 \captionsetup{%
@@ -45,7 +43,8 @@
 \usepackage[autostyle]{csquotes}
 \if@usebiblatex
    \PackageInfo{dhbenelux}{Package biblatex loaded. Please use\MessageBreak biber instead of bibtex to connect your .bib file.}
-   \usepackage[backend=biber,style=authoryear]{biblatex}
+   \usepackage[style=apa,backend=biber]{biblatex}
+   \DeclareLanguageMapping{british}{british-apa}
    %%%
    \ExecuteBibliographyOptions{firstinits=true,uniquename=init,doi=false,isbn=false}
    %
@@ -56,11 +55,11 @@
    \renewcommand{\newunitpunct}{\addcomma\space}
    \renewcommand{\labelnamepunct}{\addspace}
    \renewbibmacro*{in:}{}
-   \renewcommand{\bibfont}{\normalfont\fontsize{10pt}{11.5pt}\selectfont\raggedright}
+   \renewcommand{\bibfont}{\normalfont\selectfont\raggedright}
    \defbibheading{bibliography}[\refname]{%
        \removelastskip%
        \vspace*{8mm}%
-       {\bfseries\fontsize{12pt}{13.8pt}\selectfont\color{GrayForReferences} #1\par}%
+       {\bfseries #1\par}%
         \vspace*{-0.5\baselineskip}}%
 \else
    \PackageInfo{dhbenelux}{You deactivated biblatex. Please provide your\MessageBreak own bibliography or use BiBTeX instead.}
@@ -71,7 +70,7 @@
 \urlstyle{same}
 
 \usepackage{multicol}
-\usepackage[colorlinks,pdfusetitle]{hyperref}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
 \if@print\hypersetup{allcolors=black}\fi%   
 
 \newcounter{authors}
@@ -98,8 +97,8 @@
 \def\maketitle{%
    \begin{center}
       {\bfseries\@title\par}
-      \ifx\@authorvii\@empty% at most 6 authors
-         \ifx\@authoriv\@empty% at most 3 authors
+      \ifx\@authoriii\@empty% at most 2 authors
+         \ifx\@authorii\@empty% just 1 author
             \setcounter{@titlemulticols}{1}%
          \else
             \setcounter{@titlemulticols}{2}%
